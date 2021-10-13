@@ -1,0 +1,61 @@
+{% extends 'newapp/basestore.html' %}
+{% load static %}
+
+{% load cart %}
+{% load custom %}
+
+{% block title %}
+<title>Cart</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="border rounded p-4 m-4">
+       <p class="display-4 pl-4 ml-4">Your Orders</p>
+        <table class="table">
+            <thead>
+               <th>Sno</th>
+               <th>Product</th>
+               <th>Product Name</th>
+               <th>Order Date</th>
+               <th>Product Price</th>
+               <th>Quantity</th>
+               <th>Total</th>
+               <th>Status</th>
+            </thead>
+            <tbody>
+                {% for or in order %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td><img style="height:80px;" class="rounded-circle" src="/fa/media/{{or.product.image}}"</td>
+                    <td>{{or.product.name}}</td>
+                    <td>{{or.date}}</td>
+                    <td>{{or.price|rupee}}</td>
+                    <td>{{or.quantity}}</td>
+                    <td>{{or.quantity|multiply:or.price}}</td>
+                    {% if or.status %}
+                    <td><small class="badge badge-success">Completed</small></td>
+                    {% else %}
+                    <td><small class="badge badge-danger">Pending</small></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+    </div>
+  </div>
+</div>
+<div class="text-center">
+    <li class="nav-item active list-unstyled mx-4">
+          <button class="btn btn-primary btn-lg btn-block"><a class="nav-link" href="{% url 'Home' %}"><b style="color:white;">Healthify-Home</b></a></button>
+      </li>
+        </div>
+{% endblock %}
+{% block curossel %}
+{% endblock %}

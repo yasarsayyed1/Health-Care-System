@@ -1,0 +1,39 @@
+{% extends 'newapp/base2.html' %}
+{% load static %}
+
+{% block title %}
+<title>Ambulance-data</title>
+{% endblock %}
+
+
+
+
+{% block content %}
+<br><br>
+<h1 style="text-align:center;"><b>Ambulace Data</b></h1>
+<table class="table table-striped">
+<tr>
+    <th>Ambulance ID</th>
+    <th>Patient Name</th>
+    <th>Patient Age</th>
+    <th>Contact number</th>
+    <th>Location</th>
+    <th>Disease</th>
+    <th>Delete</th>
+</tr>
+{% for a in data  %}
+    <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{a.patient_name}}</td>
+    <td>{{a.patient_age}}</td>
+    <td>{{a.contact_number}}</td>
+    <td>{{a.location}}</td>
+    <td>{{a.disease}}</td>
+    <td><button type="submit"  class="btn btn-danger"><a href="{% url 'dlt' a.id %}"><h9 style="color:white;">Delete</h9></button></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+
+{% block ca %}
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'newapp/base.html' %}
+
+
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'newapp/css/home.css' %}">
+{% endblock style %}
+
+{% block title %}
+<title>Home</title>
+{% endblock %}
+
+{% block content %}
+<div class="center">
+   <h2  style="text-align:center;"> We Are Here For Your Care</h2>
+   <p  style="text-align:center;">We are here for your care 24/7. Any help just call us.</p>
+    <div class="bt">
+    <div class="text-center">
+        <button type="button" class="btn btn-warning" style="width: 200px;"><a href="{% url 'apo' %}"><h5 style="color:white;">Make Appointment</h5></a></button>
+    </div>
+    <br>
+    <div class="text-center">
+      <button type="button" class="btn btn-success" style="width: 200px;">Counselling</button>
+    </div>
+    <br>
+    <div class="text-center">
+        <button type="button" class="btn btn-danger" style="width: 200px;"><a href="{% url 'ambulance' %}"><h5 style="color:white;">Ambulance</h5></a></button>
+    </div>
+        </div>
+{% endblock %}
+
+{% block curossel %}
+<br><br>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-50" src="{% static 'newapp/images/o.png' %}" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-50" src="{% static 'newapp/images/1.png' %}" alt="Second slide">
+    </div>
+      <div class="carousel-item">
+      <img class="d-block w-75" src="{% static 'newapp/images/24.png' %}" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-50" src="{% static 'newapp/images/2.png' %}" alt="Third slide">
+    </div>
+      <div class="carousel-item">
+      <img class="d-block w-50" src="{% static 'newapp/images/3.png' %}" alt="Third slide">
+    </div>
+      <div class="carousel-item">
+      <img class="d-block w-50" src="{% static 'newapp/images/24.png' %}" alt="Third slide">
+    </div>
+       <div class="carousel-item">
+      <img class="d-block w-50" src="{% static 'newapp/images/25.png' %}" alt="Third slide">
+    </div>
+       <div class="carousel-item">
+      <img class="d-block w-50" src="{% static 'newapp/images/26.png' %}" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+{% endblock  %}

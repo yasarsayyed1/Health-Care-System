@@ -1,0 +1,45 @@
+{% extends 'newapp/base2.html' %}
+{% load static %}
+{% block title %}
+<title>Appointment-data</title>
+{% endblock %}
+
+
+
+
+{% block content %}
+<br><br>
+<h1 style="text-align:center;"><b>Appointment-data</b></h1>
+<table class="table table-striped">
+<tr>
+    <th>Patient ID</th>
+    <th>Patient Name</th>
+    <th>Patient Gender</th>
+    <th>patient city</th>
+    <th>Patient Previos visit</th>
+    <th>Patitent Previous Data</th>
+    <th>Appointment Date</th>
+    <th>Appointment Slot</th>
+    <th>Delete</th>
+</tr>
+{% for da in data %}
+<tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{da.name}}</td>
+    <td>{{da.gender}}</td>
+    <td>{{da.city}}</td>
+    <td>{{da.previous_visit}}</td>
+    <td>{{da.if_before_visited_visit_detail}}</td>
+    <td>{{da.appointment_date}}</td>
+    <td>{{da.slot}}</td>
+    <td><button type="button" class="btn btn-danger"><a href="#"><h9 style="color:white;">Delete</h9></a></button></td>
+</tr>
+
+{% endfor %}
+    </table>
+{% endblock %}
+
+
+{% block ca %}
+{% endblock %}
+

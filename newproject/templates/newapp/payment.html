@@ -1,0 +1,72 @@
+{% extends 'newapp/basestore.html' %}
+{% load static %}
+
+{% load cart %}
+{% load custom %}
+
+{% block title %}
+<title>Payment-Page</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="border rounded p-5 m-7">
+        <h3 style="text-align:center; color:white;">Order Summary</h3>
+
+            <div class="form-group">
+                <table class="table">
+            <thead>
+               <th>Sno</th>
+               <th>Product</th>
+               <th>Product Name</th>
+               <th>Product Price</th>
+            </thead>
+            <tbody>
+                {% for pro in product %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td><img style="height:80px;" class="rounded-circle" src="/fa/media/{{pro.image}}"></td>
+                    <td>{{pro.name}}</td>
+                    <td>{{pro.price|rupee}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+                </table>
+            </div>
+<form method="post">
+    {% csrf_token %}
+<div class="container">
+    <div class="border rounded p-5 m-7">
+        <h3 style="text-align:center; color:white;">Enter Shipping address And Contact Number</h3>
+                <div class="form-group">
+                    <label for="">Address</label>
+                    <input type="text" name="address" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                </div>
+                <div class="form-group">
+                    <label for="">Phone Number</label>
+                    <input type="text" name="phone" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                </div>
+                <div class="form-group">
+                     <label for="">Total Amount</label>
+                    <h3>{{product|cart_sum:request.session.cart|rupee}}</h3>
+                </div>
+               <div class="form-group">
+                <button type="submit" class="float-right btn btn-info btn-block">Check Out</button>
+                </div>
+            </form>
+        </div>
+</div>
+    </div>
+</div>
+{% endblock %}
+{% block payment %}
+
+
+
+{% endblock %}
+
+
+
+{% block curossel %}
+{% endblock %}

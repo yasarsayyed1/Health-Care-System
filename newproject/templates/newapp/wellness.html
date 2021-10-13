@@ -1,0 +1,104 @@
+{% extends 'newapp/basestore.html' %}
+{% load static %}
+
+{% load cart %}
+{% load custom %}
+
+{% block title %}
+<title>Healthify-store</title>
+{% endblock %}
+
+
+{% block content %}
+
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="{% static 'newapp/images/63.jpg' %}" alt="First slide" width="3000px" height="600px">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{% static 'newapp/images/65.jpg' %}" alt="Second slide" width="1146px" height="600px">
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container-fluid mt-4">
+<div class="row">
+     <div class="col-lg-2">
+              <h3 style="color:white;  padding-left: 50px;"><b>Filters</b></h3>
+         <div class="list-group">
+           <li class="list-group-item">
+             <form method="get">
+                {{myfilter.form.as_p}}
+        <button class="btn btn-primary" name="search" type="submit" style="width:100%;">Search</button>
+         </form>
+           </li>
+         </div>
+               <br><br>
+          <div class="list-group">
+           <li class="list-group-item">
+               <a href="{% url 'wellness' %}" class="list-group-item list-group-item-action">All Products</a>
+             {% for cat in cat %}
+        <a href="/fa/wellness/?category={{cat.id}}" class="list-group-item list-group-item-action">{{cat.name}}</a>
+         {% endfor %}
+           </li>
+         </div>
+  </div>
+
+
+    <div id="products" class="col-lg-10 mx-auto">
+    <div class="row mx-auto">
+        {% for pro in product %}
+        <div class="card mx-auto mb-3" id="{{pro.id}}"  style="width: 15rem;">
+            <img class="card-img-mt-2" src="/fa/media/{{pro.image}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{pro.name}}</h5>
+                <p class="card-text">
+                    <p>{{pro.price|rupee}}</p>
+<!--                    {{pro | is_in_cart:request.session.cart}}-->
+            </div>
+            <div  class="class-footer p-0 no-gutters">
+            {% if pro|is_in_cart:request.session.cart  %}
+           <div class="row no-gutters">
+               <form method="post" class="col-2">
+                {% csrf_token %}
+                  <input hidden type="text" name="product" value="{{pro.id}}">
+                  <input hidden type="text" name="remove" value="True">
+                   <input type="submit" value="_" class="btn btn-block btn-success">
+            </form>
+           <div class="text-center col">{{pro|cart_count:request.session.cart}} in cart</div>
+            <form method="post" class="col-2">
+                {% csrf_token %}
+                  <input hidden type="text" name="product" value="{{pro.id}}">
+                <input type="submit" value="+" class="btn btn-block btn-success">
+            </form>
+        </div>
+            {% else %}
+            <div class="row no-gutters">
+        <form action="/fa/wellness/#{{pro.id}}" method="post" class="btn-block">
+                        {% csrf_token %}
+                        <input hidden type="text" name="product" value="{{pro.id}}">
+                        <input type="submit" class="btn btn-success btn-block border" value="add to cart">
+                    </form>
+            </div>
+            {% endif %}
+        </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+
+</div>
+    <div class="text-center">
+    <li class="nav-item active list-unstyled mx-4">
+          <button class="btn btn-primary btn-lg btn-block"><a class="nav-link" href="{% url 'Home' %}"><b style="color:white;">Healthify-Home</b></a></button>
+      </li>
+        </div>
+    {% endblock %}
+{% block curossel %}
+{% endblock %}

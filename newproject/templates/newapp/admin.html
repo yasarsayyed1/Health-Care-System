@@ -1,0 +1,24 @@
+{% extends 'newapp/base2.html' %}
+{% load static %}
+
+{% block title %}
+  <title>Admin-Home</title>
+{% endblock %}
+{% block content %}
+{% endblock %}
+
+{% block ca %}
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="{% static 'newapp/images/c.jpg' %}" alt="First slide" width="3000px" height="600px">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{% static 'newapp/images/b.jpg' %}" alt="Second slide" width="1146px" height="600px">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{% static 'newapp/images/c.jpg' %}" alt="Second slide" width="1400px" height="600px">
+    </div>
+  </div>
+</div>
+{% endblock %}

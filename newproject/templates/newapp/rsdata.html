@@ -1,0 +1,39 @@
+{% extends 'newapp/base2.html' %}
+{% load static %}
+{% block title %}
+<title>Roomserice-data</title>
+{% endblock %}
+
+
+
+
+{% block content %}
+<br><br>
+<h1 style="text-align:center;"><b>Roomservice-data</b></h1>
+<table class="table table-striped">
+<tr>
+    <th>Sr No</th>
+    <th>Staff Name</th>
+    <th>Gender</th>
+    <th>Address</th>
+    <th>Age</th>
+    <th>Update</th>
+    <th>Delete</th>
+</tr>
+    {% for data in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{data.name}}</td>
+        <td>{{data.gender}}</td>
+        <td>{{data.address}}</td>
+        <td>{{data.age}} </td>
+        <td><button type="submit" class="btn btn-primary">Update</button></td>
+        <td><button type="submit" class="btn btn-danger">Delete</button></td>
+    </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
+
+
+{% block ca %}
+{% endblock %}
