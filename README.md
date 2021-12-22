@@ -1,4 +1,4 @@
-# Health-Care-System project 
+# Health-Care-System Project 
 It's a web application for the hospital which manages doctors.staff and patients.It has Appointment Booking system as well as Ambulance Booking.It has its own E-medical Shop.
 In this project, I have used Python,Django  and SQLite database. A responsive web-app with aesthetic and accessible UI for managing  hospital built using Django and front end technologies HTML,CSS,JS and Bootstrap .
 
