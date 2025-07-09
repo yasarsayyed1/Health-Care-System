@@ -1,5 +1,4 @@
 # Health-Care-System Project 
-# Health-Care-System Project
 
 A full-stack web application for hospitals to manage doctors, staff, patients, appointments, ambulance bookings, and an integrated E-medical shop.
 
