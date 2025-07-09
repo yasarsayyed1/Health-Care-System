@@ -1,6 +1,105 @@
 # Health-Care-System Project 
-It's a web application for the hospital which manages doctors.staff and patients.It has Appointment Booking system as well as Ambulance Booking.It has its own E-medical Shop.
-In this project, I have used Python,Django  and SQLite database. A responsive web-app with aesthetic and accessible UI for managing  hospital built using Django and front end technologies HTML,CSS,JS and Bootstrap .
+# Health-Care-System Project
+
+A full-stack web application for hospitals to manage doctors, staff, patients, appointments, ambulance bookings, and an integrated E-medical shop.
+
+## Features
+- Doctor, staff, and patient management
+- Appointment booking system
+- Ambulance booking
+- E-medical shop (cart, orders, payments)
+- Nursing and room services
+- User authentication (login/signup/password reset)
+- Responsive UI (HTML, CSS, JS, Bootstrap)
+
+---
+
+## Technology Stack
+- **Backend:** Python 3.9+, Django 3.2+
+- **Frontend:** HTML, CSS, JavaScript, Bootstrap
+- **Database:** SQLite (default), PostgreSQL (optional for production)
+- **APIs:** Django REST Framework
+- **Images:** Pillow
+
+---
+
+## Quick Start (Local)
+
+1. **Clone the repository:**
+   ```bash
+   git clone <your-repo-url>
+   cd Health-Care-System
+   ```
+2. **Create a virtual environment & activate:**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+3. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. **Apply migrations:**
+   ```bash
+   python newproject/manage.py migrate
+   ```
+5. **Create superuser (admin):**
+   ```bash
+   python newproject/manage.py createsuperuser
+   ```
+6. **Run the development server:**
+   ```bash
+   python newproject/manage.py runserver
+   ```
+7. **Access the app:**
+   - Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+
+---
+
+## Docker Setup
+
+1. **Build the Docker image:**
+   ```bash
+   docker build -t healthcare-system .
+   ```
+2. **Run the container:**
+   ```bash
+   docker run -p 8000:8000 healthcare-system
+   ```
+3. **Access the app:**
+   - Visit [http://localhost:8000/](http://localhost:8000/)
+
+---
+
+## Kubernetes Demo
+
+1. **Push your Docker image to Docker Hub:**
+   - Update the image name in `k8s-demo.yaml` to your Docker Hub username.
+2. **Apply the manifest:**
+   ```bash
+   kubectl apply -f k8s-demo.yaml
+   ```
+3. **Access the app:**
+   - Use the external IP from your Kubernetes service (see `kubectl get svc`).
+
+---
+
+## Project Structure
+- `newproject/` - Django project root
+- `newapp/` - Main Django app (models, views, forms, etc.)
+- `media/` - Uploaded images
+- `static/` - Static files (CSS, JS, images)
+- `templates/` - HTML templates
+- `requirements.txt` - Python dependencies
+- `Dockerfile` - Docker build instructions
+- `k8s-demo.yaml` - Kubernetes deployment/service manifest
+
+---
+
+## Requirements
+See [`requirements.txt`](./requirements.txt) for all Python dependencies.
+
+---
 
 ![1](https://user-images.githubusercontent.com/91863955/143219583-b36ae52a-b2dc-4537-9511-9c25f211146d.png)
 
